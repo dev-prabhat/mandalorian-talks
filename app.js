@@ -1,22 +1,22 @@
-var btnTranslate = document.querySelector("#btn-translate")
-var inputArea = document.querySelector("textarea")
-var outputArea = document.querySelector("#output")
+const btnTranslate = document.querySelector("#btn-translate")
+const inputArea = document.querySelector("textarea")
+const outputArea = document.querySelector("#output")
 
-var serverUrl = "https://api.funtranslations.com/translate/mandalorian.json"
+const serverUrl = "https://api.funtranslations.com/translate/mandalorian.json"
 
-function getTranslatedText(text) {
+const getTranslatedText = (text) => {
     return `${serverUrl}?text=${text}`
 }
 
-function Eventhandler() {
-    var inputData = inputArea.value
+const Eventhandler = () => {
+    const inputData = inputArea.value
 
     fetch(getTranslatedText(inputData))
         .then(res => res.json())
         .then(json => {
             var translated = json.contents.translated
             outputArea.innerText = translated
-            //console.log(json)
+            console.log(json.contents.translated)
         })
         .catch(err => console.log(err))
 
