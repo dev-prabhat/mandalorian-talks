@@ -16,7 +16,7 @@ const Eventhandler = () => {
         .then(json => {
             var translated = json.contents.translated
             outputArea.innerText = translated
-            console.log(json.contents.translated)
+            //console.log(json.contents.translated)
         })
         .catch(err => console.log(err))
 
